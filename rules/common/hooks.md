@@ -12,7 +12,6 @@ Use with caution:
 - Enable for trusted, well-defined plans
 - Disable for exploratory work
 - Never use dangerously-skip-permissions flag
-- Configure `allowedTools` in `~/.claude.json` instead
 
 ## TodoWrite Best Practices
 
@@ -28,3 +27,10 @@ Todo list reveals:
 - Extra unnecessary items
 - Wrong granularity
 - Misinterpreted requirements
+
+## Code Quality Hooks
+
+Use the `plankton-code-quality` skill to set up write-time enforcement:
+- Auto-formatting on every file edit
+- Linting via hooks
+- Claude-powered fixes

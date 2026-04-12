@@ -1,82 +1,14 @@
 # Skill Catalog
 
-61 skills organized by domain. Each skill lives in `skills/<name>/SKILL.md`.
+60 skills organized by role. gstack provides the primary workflow. ECC skills are
+supporting reference material invoked during gstack workflows.
 
 ---
 
-## Custom (2)
+## Primary Workflow: gstack (36 skills)
 
-| Skill | Description |
-|-------|-------------|
-| `data-engineer` | DAMA-DMBOK data engineering best practices -- data quality, metadata, security, architecture |
-| `specify-flow` | Speckit spec-driven development workflow, from constitution through implementation |
-
-## Data & Databases (4)
-
-| Skill | Description |
-|-------|-------------|
-| `clickhouse-io` | ClickHouse query optimization, analytics, high-performance analytical workloads |
-| `database-migrations` | Schema changes, rollbacks, zero-downtime migrations (Postgres, MySQL, ORMs) |
-| `postgres-patterns` | PostgreSQL query optimization, schema design, indexing, security |
-| `cost-aware-llm-pipeline` | LLM cost optimization -- model routing, budget tracking, prompt caching |
-
-## Python (2)
-
-| Skill | Description |
-|-------|-------------|
-| `python-patterns` | PEP 8, type hints, idiomatic patterns for robust Python applications |
-| `python-testing` | pytest, TDD, fixtures, mocking, parametrization, coverage |
-
-## Go (2)
-
-| Skill | Description |
-|-------|-------------|
-| `golang-patterns` | Idiomatic Go patterns, conventions, best practices |
-| `golang-testing` | Table-driven tests, subtests, benchmarks, fuzzing, TDD |
-
-## Architecture & API (4)
-
-| Skill | Description |
-|-------|-------------|
-| `api-design` | REST API patterns -- resource naming, status codes, pagination, versioning |
-| `backend-patterns` | Backend architecture, DB optimization, server-side patterns |
-| `coding-standards` | Universal coding standards for TypeScript, JavaScript, React, Node.js |
-| `blueprint` | Multi-session engineering project planning with dependency graphs |
-
-## DevOps & Deployment (3)
-
-| Skill | Description |
-|-------|-------------|
-| `deployment-patterns` | CI/CD pipelines, Docker, health checks, rollback strategies |
-| `docker-patterns` | Docker/Compose, container security, networking, multi-service orchestration |
-| `claude-api` | Anthropic Claude API patterns (Python/TS) -- Messages API, streaming, tool use |
-
-## Testing & Quality (5)
-
-| Skill | Description |
-|-------|-------------|
-| `tdd-workflow` | Test-driven development with 80%+ coverage enforcement |
-| `e2e-testing` | Playwright E2E testing, Page Object Model, CI/CD integration |
-| `verification-loop` | Comprehensive verification system for code sessions |
-| `eval-harness` | Eval-driven development framework |
-| `plankton-code-quality` | Write-time code quality enforcement via hooks (formatting, linting) |
-
-## Security (2)
-
-| Skill | Description |
-|-------|-------------|
-| `security-review` | Security checklist for auth, user input, secrets, API endpoints |
-| `security-scan` | Scan Claude Code config for vulnerabilities and injection risks |
-
-## Workflow (1)
-
-| Skill | Description |
-|-------|-------------|
-| `search-first` | Research-before-coding -- find existing tools/libraries before writing custom code |
-
----
-
-## gstack (36)
+gstack is the default framework for all development interaction. Its philosophy:
+**Boil the Lake** (do the complete thing), **Search Before Building**, **User Sovereignty**.
 
 ### Planning & Review
 
@@ -146,21 +78,71 @@
 
 ---
 
-## Commands (9)
+## Supporting Skills: Coding Standards & Patterns (ECC)
 
-Speckit spec-driven development pipeline:
+Reference material invoked during gstack workflows for language-specific patterns,
+architecture guidance, and coding standards.
 
-| Command | Description |
-|---------|-------------|
-| `speckit.constitution` | Create/update project constitution |
-| `speckit.specify` | Create feature specs from natural language |
-| `speckit.clarify` | Generate clarification questions for specs |
-| `speckit.checklist` | Generate custom requirement checklists |
-| `speckit.analyze` | Cross-artifact consistency analysis |
-| `speckit.plan` | Implementation planning with design artifacts |
-| `speckit.tasks` | Generate dependency-ordered task lists |
-| `speckit.taskstoissues` | Convert tasks to GitHub Issues |
-| `speckit.implement` | Execute implementation plan |
+| Skill | Description |
+|-------|-------------|
+| `coding-standards` | Universal coding standards for TypeScript, JavaScript, React, Node.js |
+| `api-design` | REST API patterns -- resource naming, status codes, pagination, versioning |
+| `backend-patterns` | Backend architecture, DB optimization, server-side patterns |
+| `python-patterns` | PEP 8, type hints, idiomatic patterns for robust Python applications |
+| `golang-patterns` | Idiomatic Go patterns, conventions, best practices |
+| `blueprint` | Multi-session engineering project planning with dependency graphs |
+| `claude-api` | Anthropic Claude API patterns (Python/TS) -- Messages API, streaming, tool use |
+| `cost-aware-llm-pipeline` | LLM cost optimization -- model routing, budget tracking, prompt caching |
+
+## Supporting Skills: Testing & Quality (ECC)
+
+| Skill | Description |
+|-------|-------------|
+| `tdd-workflow` | Test-driven development with 80%+ coverage enforcement |
+| `e2e-testing` | Playwright E2E testing, Page Object Model, CI/CD integration |
+| `python-testing` | pytest, TDD, fixtures, mocking, parametrization, coverage |
+| `golang-testing` | Table-driven tests, subtests, benchmarks, fuzzing, TDD |
+| `verification-loop` | Comprehensive verification system for code sessions |
+| `eval-harness` | Eval-driven development framework |
+| `plankton-code-quality` | Write-time code quality enforcement via hooks (formatting, linting) |
+
+## Supporting Skills: Data & Databases (ECC)
+
+| Skill | Description |
+|-------|-------------|
+| `clickhouse-io` | ClickHouse query optimization, analytics, high-performance analytical workloads |
+| `database-migrations` | Schema changes, rollbacks, zero-downtime migrations (Postgres, MySQL, ORMs) |
+| `postgres-patterns` | PostgreSQL query optimization, schema design, indexing, security |
+
+## Supporting Skills: Infrastructure (ECC)
+
+| Skill | Description |
+|-------|-------------|
+| `deployment-patterns` | CI/CD pipelines, Docker, health checks, rollback strategies |
+| `docker-patterns` | Docker/Compose, container security, networking, multi-service orchestration |
+
+## Supporting Skills: Security (ECC)
+
+| Skill | Description |
+|-------|-------------|
+| `security-review` | Security checklist for auth, user input, secrets, API endpoints |
+| `security-scan` | Scan Claude Code / OpenCode config for vulnerabilities and injection risks |
+
+## Supporting Skills: Workflow (ECC)
+
+| Skill | Description |
+|-------|-------------|
+| `search-first` | Research-before-coding -- find existing tools/libraries before writing custom code |
+
+---
+
+## Custom Skills (1)
+
+| Skill | Description |
+|-------|-------------|
+| `data-engineer` | DAMA-DMBOK data engineering best practices -- data quality, metadata, security, architecture |
+
+---
 
 ## Rules (14)
 

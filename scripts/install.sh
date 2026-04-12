@@ -94,7 +94,6 @@ echo "Claude Code (~/.claude/):"
 if [ -d "$HOME/.claude" ]; then
   link_dir "$REPO_DIR/skills"   "$HOME/.claude/skills"   "skills"
   link_dir "$REPO_DIR/rules"    "$HOME/.claude/rules"    "rules"
-  link_dir "$REPO_DIR/commands" "$HOME/.claude/commands"  "commands"
 else
   skip "~/.claude/ does not exist"
 fi
@@ -103,9 +102,8 @@ echo ""
 # --- Summary ---
 skill_count=$(ls -d "$REPO_DIR/skills"/*/ 2>/dev/null | wc -l | tr -d ' ')
 rule_count=$(find "$REPO_DIR/rules" -name '*.md' 2>/dev/null | wc -l | tr -d ' ')
-cmd_count=$(ls "$REPO_DIR/commands"/*.md 2>/dev/null | wc -l | tr -d ' ')
 
 if ! $UNINSTALL; then
-  echo "Inventory: $skill_count skills, $rule_count rules, $cmd_count commands"
+  echo "Inventory: $skill_count skills, $rule_count rules"
 fi
 echo "Done."

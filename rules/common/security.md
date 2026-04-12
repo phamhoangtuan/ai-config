@@ -12,6 +12,8 @@ Before ANY commit:
 - [ ] Rate limiting on all endpoints
 - [ ] Error messages don't leak sensitive data
 
+Use the `security-review` skill for the full checklist when adding auth, handling user input, creating API endpoints, or working with secrets.
+
 ## Secret Management
 
 - NEVER hardcode secrets in source code
@@ -21,9 +23,11 @@ Before ANY commit:
 
 ## Security Response Protocol
 
-If security issue found:
+If a security issue is found:
 1. STOP immediately
-2. Use **security-reviewer** agent
+2. Use `/cso` for a full infrastructure-first security audit (OWASP, STRIDE)
 3. Fix CRITICAL issues before continuing
 4. Rotate any exposed secrets
 5. Review entire codebase for similar issues
+
+Use `security-scan` skill to scan Claude Code / OpenCode config for vulnerabilities.
