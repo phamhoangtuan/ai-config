@@ -1,0 +1,7 @@
+# gstack compiled binaries (~59MB each, restored by scripts/sync-gstack.sh)
+skills/gstack/bin/gstack-global-discover
+skills/gstack/browse/dist/browse
+skills/gstack/browse/dist/find-browse
+
+# macOS
+.DS_Store
