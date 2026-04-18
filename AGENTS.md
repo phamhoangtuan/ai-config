@@ -13,11 +13,11 @@ This file covers two modes:
 
 ```
 ai-config/
-  skills/           # 60 invocable skill directories (each has SKILL.md)
-  rules/            # 14 always-on rule files
-    common/         #   9 language-agnostic rules
+  skills/           # 19 invocable skill directories (each has SKILL.md)
+  rules/            # 15 always-on rule files
+    common/         #  10 language-agnostic rules
     python/         #   5 Python-scoped rules (frontmatter: paths: ["**/*.py"])
-  scripts/          # install.sh, sync-gstack.sh
+  scripts/          # install.sh
   docs/             # Full skill catalog (SKILLS.md)
 ```
 
@@ -25,15 +25,12 @@ ai-config/
 - **Rules** (`rules/`) -- always loaded, always active. Guidelines for coding style, security, git, testing, performance.
 - **Skills** (`skills/`) -- invoked on demand via slash commands or proactive triggers. Each skill has specialized workflows.
 
-**Three skill sources:**
+**Skill sources:**
 
 | Source | Count | Role |
 |--------|-------|------|
-| gstack | 36 | Primary workflow framework. Covers full lifecycle. |
-| ECC | 23 | Supporting reference (coding standards, testing, infra). |
-| Custom | 1 | Hand-written (`data-engineer`). |
-
-gstack skills are primary. When a task matches a gstack skill, invoke it instead of answering directly. ECC skills provide patterns that gstack calls into.
+| ECC | 17 | Supporting reference (coding standards, testing, infra). |
+| Custom | 2 | Local skills (`data-engineer`, `karpathy-guidelines`). |
 
 **Symlink topology:**
 
@@ -46,52 +43,22 @@ gstack skills are primary. When a task matches a gstack skill, invoke it instead
 
 ## Using the Skills
 
-### Development Lifecycle
+### Development Workflow
 
-All work follows: **Research -> Plan -> Build (TDD) -> Review -> Ship**
+Supported development patterns with ECC skills and custom guidance:
 
-| Phase | Primary Skill | Supporting |
-|-------|--------------|------------|
-| Research | `search-first` (ECC) | GitHub search, package registries, vendor docs |
-| Plan | `/office-hours`, `/blueprint`, `/plan-eng-review`, `/autoplan` | `api-design`, `backend-patterns` |
-| Build | `/investigate` (debugging), `tdd-workflow` (ECC) | Language-specific patterns |
-| Review | `/review`, `/cso` | `coding-standards`, `security-review` |
-| Ship | `/ship`, `/land-and-deploy`, `/document-release` | `deployment-patterns` |
+| Pattern | Skills |
+|---------|--------|
+| Research before coding | `search-first` (ECC) |
+| Code quality | `karpathy-guidelines` (auto-loads on code work) |
+| Testing | `tdd-workflow`, `python-testing`, `golang-testing` |
+| Security review | `security-review`, `security-scan` |
+| Data engineering | `data-engineer`, `database-migrations`, `postgres-patterns`, `clickhouse-io` |
+| Infrastructure | `deployment-patterns`, `docker-patterns` |
 
-### Proactive Triggers
+### Claude Code Auto-Loading
 
-Skills auto-invoke on intent. Do not answer directly when a skill matches:
-
-| Intent | Skill |
-|--------|-------|
-| Bug, error, stack trace, "why is this broken" | `/investigate` |
-| "Ship", "deploy", "create PR" | `/ship` |
-| "QA", "test the site", find bugs | `/qa` |
-| "Code review", "check my diff" | `/review` |
-| New idea, "is this worth building" | `/office-hours` |
-| "Think bigger", scope review | `/plan-ceo-review` |
-| "Safety mode", "be careful" | `/careful` or `/guard` |
-| "Security audit", "threat model" | `/cso` |
-| "Performance", "page speed" | `/benchmark` |
-| "Health check", "code quality" | `/health` |
-| "Save progress", "resume" | `/checkpoint` |
-
-Full routing table: [`rules/common/agents.md`](rules/common/agents.md)
-Full skill catalog: [`docs/SKILLS.md`](docs/SKILLS.md)
-
-### Multi-Perspective Review Pipeline
-
-For complex plans before implementation, run the review gauntlet:
-
-1. `/plan-ceo-review` -- strategy and scope
-2. `/plan-eng-review` -- architecture, data flow, edge cases (required for non-trivial changes)
-3. `/plan-design-review` -- UI/UX quality
-4. `/plan-devex-review` -- developer experience
-5. `/autoplan` -- run all four automatically
-
-### Parallel Execution
-
-Always parallelize independent operations. Launch concurrent tasks when they don't depend on each other. Sequential execution for independent work is wrong.
+`karpathy-guidelines` auto-loads for code-writing, refactoring, debugging, and code-review tasks via the `rules/common/karpathy-guidelines.md` rule. See [docs/SKILLS.md](docs/SKILLS.md) for the full catalog.
 
 ### Voice and Tone
 
@@ -127,6 +94,7 @@ description: When and how to use this skill. One paragraph.
 3. Both OpenCode and Claude Code auto-discover it via the symlink. No registration step.
 
 For ECC-sourced skills, add `origin: ECC` to frontmatter.
+For Claude Code auto-triggering, add a matching rule in `rules/common/` or `rules/python/`.
 
 ### Adding a Rule
 
@@ -202,13 +170,14 @@ Delete the directory from `skills/`. Gone from all tools immediately.
 | `AGENTS.md` | This file. Repo-level onboarding for AI agents. |
 | `README.md` | Human-readable project overview. |
 | `rules/common/agents.md` | Runtime skill routing table (loaded as a rule). |
+| `rules/common/karpathy-guidelines.md` | Always-on Claude Code rule that auto-loads `karpathy-guidelines` for coding work. |
 | `rules/common/development-workflow.md` | gstack lifecycle phases. |
 | `rules/common/git-workflow.md` | Commit format and PR workflow. |
 | `rules/common/coding-style.md` | Code formatting and style rules. |
 | `rules/common/security.md` | Security rules (always-on). |
 | `rules/common/testing.md` | Testing requirements (always-on). |
 | `rules/python/*.md` | Python-specific extensions of common rules. |
-| `docs/SKILLS.md` | Full catalog of all 60 skills with triggers. |
+| `docs/SKILLS.md` | Full catalog of all 61 skills with triggers. |
 | `scripts/install.sh` | Symlink installer (supports `--dry-run`, `--uninstall`). |
 | `scripts/sync-gstack.sh` | Pulls latest gstack skills from upstream. |
 | `skills/gstack/ETHOS.md` | gstack philosophy: Boil the Lake, Search Before Building, User Sovereignty. |

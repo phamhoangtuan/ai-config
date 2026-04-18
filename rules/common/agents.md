@@ -7,12 +7,12 @@
 
 ## Routing Table
 
-| Task | gstack Skill | Supporting ECC Skill |
-|------|-------------|---------------------|
+| Task | gstack Skill | Supporting Skill |
+|------|-------------|------------------|
 | Implementation planning, ideation | `/office-hours`, `/blueprint` | -- |
 | Architecture review, lock in design | `/plan-eng-review` | `api-design`, `backend-patterns` |
-| Test-driven development | -- | `tdd-workflow` |
-| Pre-landing code review | `/review` | `coding-standards` |
+| Test-driven development | -- | `tdd-workflow`, `karpathy-guidelines` |
+| Pre-landing code review | `/review` | `coding-standards`, `karpathy-guidelines` |
 | Security audit | `/cso` | `security-review`, `security-scan` |
 | Debugging, root cause | `/investigate` | -- |
 | Browser QA, E2E testing | `/qa` | `e2e-testing` |
@@ -28,6 +28,7 @@
 
 When gstack proactive mode is enabled (default), skills are auto-invoked on intent. Key triggers:
 
+- Coding, refactoring, and code review work should load `karpathy-guidelines` as a supporting skill.
 - Bug, error, "why is this broken" → `/investigate`
 - "Ship", "deploy", "create PR" → `/ship`
 - "QA", "test the site", find bugs → `/qa`

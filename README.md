@@ -12,6 +12,10 @@ gstack's lifecycle: Research → Plan → Build → Review → Ship.
 patterns, security checklists, and language-specific guidance invoked during gstack
 workflows.
 
+**Claude Code rules can auto-load supporting guidance for coding work.** This repo uses a
+common rule to apply `karpathy-guidelines` automatically for code-writing, refactoring,
+debugging, and code-review tasks.
+
 ### gstack Lifecycle
 
 | Phase | gstack Skills |
@@ -33,9 +37,9 @@ gstack proactively routes to the right skill based on intent. Key triggers:
 
 ```
 ai-config/
-  skills/           # 60 skill directories (SKILL.md each)
-  rules/            # 14 rule files
-    common/         #   9 general rules (workflow, security, git, etc.)
+  skills/           # 19 skill directories (SKILL.md each)
+  rules/            # 15 rule files
+    common/         #  10 general rules (workflow, security, git, etc.)
     python/         #   5 Python-specific rules
   scripts/          # install + maintenance scripts
   docs/             # skill catalog and reference
@@ -71,8 +75,7 @@ Both tools auto-discover it.
 
 **Remove a skill** -- delete the directory from `skills/`. Gone from all tools immediately.
 
-**Update gstack skills** -- after running `gstack-upgrade`, run `./scripts/sync-gstack.sh`
-to pull the latest generated SKILL.md files into this repo.
+
 
 **Verify installation** -- run `./scripts/install.sh` again. It checks existing links and
 reports status without overwriting valid symlinks.
@@ -80,17 +83,20 @@ reports status without overwriting valid symlinks.
 **Add a rule** -- place a `.md` file in `rules/common/` (all languages) or `rules/python/`
 (Python-specific). Claude Code loads rules automatically.
 
+Use a common rule when guidance should auto-apply in Claude Code. OpenCode only consumes
+the `skills/` directory, so the same guidance remains available there as a manually
+invoked skill.
+
 ## Inventory
 
 | Category | Count | Details |
 |----------|-------|---------|
-| Skills   | 60    | 1 custom + 23 ECC (supporting) + 36 gstack (primary workflow) |
-| Rules    | 14    | 9 common + 5 Python |
+| Skills   | 19    | 2 custom + 17 ECC (supporting) |
+| Rules    | 15    | 10 common + 5 Python |
 
 See [docs/SKILLS.md](docs/SKILLS.md) for the full catalog with descriptions and triggers.
 
 ## Skill Sources
 
-- **gstack** -- primary workflow framework from [gstack](https://github.com/gstackio/gstack). Covers the full development lifecycle: planning, QA, shipping, design, safety, browser testing.
 - **ECC** -- supporting reference skills from [everything-claude-code](https://github.com/affaan-m/everything-claude-code). Coding standards, testing patterns, security checklists, infrastructure guides.
-- **Custom** -- hand-written skills specific to this workflow (`data-engineer`)
+- **Custom** -- local skills specific to this workflow (`data-engineer`, `karpathy-guidelines`)
