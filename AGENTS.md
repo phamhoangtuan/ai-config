@@ -13,7 +13,7 @@ This file covers two modes:
 
 ```
 ai-config/
-  skills/           # 19 invocable skill directories (each has SKILL.md)
+  skills/           # 23 invocable skill directories (each has SKILL.md)
   rules/            # 15 always-on rule files
     common/         #  10 language-agnostic rules
     python/         #   5 Python-scoped rules (frontmatter: paths: ["**/*.py"])
@@ -30,7 +30,7 @@ ai-config/
 | Source | Count | Role |
 |--------|-------|------|
 | ECC | 17 | Supporting reference (coding standards, testing, infra). |
-| Custom | 2 | Local skills (`data-engineer`, `karpathy-guidelines`). |
+| Custom | 6 | Local skills (`data-engineer`, `karpathy-guidelines`, merged DE workflow skills). |
 
 **Symlink topology:**
 
@@ -53,7 +53,7 @@ Supported development patterns with ECC skills and custom guidance:
 | Code quality | `karpathy-guidelines` (auto-loads on code work) |
 | Testing | `tdd-workflow`, `python-testing`, `golang-testing` |
 | Security review | `security-review`, `security-scan` |
-| Data engineering | `data-engineer`, `database-migrations`, `postgres-patterns`, `clickhouse-io` |
+| Data engineering | `data-engineer`, `warehouse-analysis`, `lineage-ops`, `airflow-data-engineering`, `dbt-analytics-engineering`, `database-migrations`, `postgres-patterns`, `clickhouse-io` |
 | Infrastructure | `deployment-patterns`, `docker-patterns` |
 
 ### Claude Code Auto-Loading

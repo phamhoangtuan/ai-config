@@ -1,6 +1,6 @@
 # Skill Catalog
 
-19 skills organized by category. ECC skills are supporting reference material for
+23 skills organized by category. ECC skills are supporting reference material for
 coding standards, testing patterns, security checklists, and infrastructure guidance.
 
 ---
@@ -60,6 +60,24 @@ coding standards, testing patterns, security checklists, and infrastructure guid
 |-------|-------------|
 | `data-engineer` | DAMA-DMBOK data engineering best practices -- data quality, metadata, security, architecture |
 | `karpathy-guidelines` | Behavioral guidelines for coding work -- surface assumptions, keep code simple, make surgical changes, and define verifiable success criteria |
+
+## Custom Data Engineering Workflow Skills (4)
+
+| Skill | Description |
+|-------|-------------|
+| `warehouse-analysis` | Unified warehouse discovery and analysis workflow: schema scan, SQL analysis, profiling, and freshness checks |
+| `lineage-ops` | Unified lineage workflow: upstream/downstream impact analysis, task lineage annotations, and OpenLineage extractor guidance |
+| `airflow-data-engineering` | Unified Airflow workflow: DAG authoring, testing, debugging, plugins, HITL, and migration guidance |
+| `dbt-analytics-engineering` | Unified dbt workflow: modeling, command execution, docs retrieval, semantic layer, unit tests, troubleshooting, and migrations |
+
+## Consolidation Map (Astronomer Import)
+
+Imported scopes were merged to reduce surface area and overlap:
+
+- `warehouse-analysis` merges: `warehouse-init`, `analyzing-data`, `profiling-tables`, `checking-freshness`
+- `lineage-ops` merges: `tracing-upstream-lineage`, `tracing-downstream-lineage`, `annotating-task-lineage`, `creating-openlineage-extractors`
+- `airflow-data-engineering` merges: `airflow`, `authoring-dags`, `testing-dags`, `debugging-dags`, `airflow-plugins`, `airflow-hitl`, `migrating-airflow-2-to-3`
+- `dbt-analytics-engineering` merges: `using-dbt-for-analytics-engineering`, `running-dbt-commands`, `adding-dbt-unit-test`, `troubleshooting-dbt-job-errors`, `building-dbt-semantic-layer`, `answering-natural-language-questions-with-dbt`, `fetching-dbt-docs`, `configuring-dbt-mcp-server`, `migrating-dbt-core-to-fusion`, `migrating-dbt-project-across-platforms`, `cosmos-dbt-core`, `cosmos-dbt-fusion`
 
 ---
 
