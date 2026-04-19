@@ -11,6 +11,10 @@
 |------|-------------|------------------|
 | Implementation planning, ideation | `/office-hours`, `/blueprint` | -- |
 | Architecture review, lock in design | `/plan-eng-review` | `api-design`, `backend-patterns` |
+| Warehouse exploration, profiling, freshness | -- | `warehouse-analysis`, `data-engineer` |
+| Lineage impact analysis and annotations | -- | `lineage-ops`, `data-engineer` |
+| Airflow DAG authoring, testing, debugging | -- | `airflow-data-engineering`, `python-patterns` |
+| dbt authoring, test, run, troubleshooting | -- | `dbt-analytics-engineering`, `python-patterns` |
 | Test-driven development | -- | `tdd-workflow`, `karpathy-guidelines` |
 | Pre-landing code review | `/review` | `coding-standards`, `karpathy-guidelines` |
 | Security audit | `/cso` | `security-review`, `security-scan` |
@@ -29,6 +33,10 @@
 When gstack proactive mode is enabled (default), skills are auto-invoked on intent. Key triggers:
 
 - Coding, refactoring, and code review work should load `karpathy-guidelines` as a supporting skill.
+- Warehouse questions, table quality checks, freshness checks -> `warehouse-analysis`
+- "lineage", "impact", "upstream", "downstream" -> `lineage-ops`
+- "DAG", "Airflow", "task failure", "backfill" -> `airflow-data-engineering`
+- "dbt", "model", "semantic layer", "dbt unit test" -> `dbt-analytics-engineering`
 - Bug, error, "why is this broken" → `/investigate`
 - "Ship", "deploy", "create PR" → `/ship`
 - "QA", "test the site", find bugs → `/qa`
