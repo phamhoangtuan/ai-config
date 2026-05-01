@@ -13,7 +13,7 @@ This file covers two modes:
 
 ```
 ai-config/
-  skills/           # 23 invocable skill directories (each has SKILL.md)
+  skills/           # 27 invocable skill directories (each has SKILL.md)
   rules/            # 15 always-on rule files
     common/         #  10 language-agnostic rules
     python/         #   5 Python-scoped rules (frontmatter: paths: ["**/*.py"])
@@ -30,7 +30,7 @@ ai-config/
 | Source | Count | Role |
 |--------|-------|------|
 | ECC | 17 | Supporting reference (coding standards, testing, infra). |
-| Custom | 6 | Local skills (`data-engineer`, `karpathy-guidelines`, merged DE workflow skills). |
+| Custom | 10 | Local skills (`data-engineer`, `karpathy-guidelines`, merged DE workflow skills, mattpocock imports). |
 
 **Symlink topology:**
 
