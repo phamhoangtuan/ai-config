@@ -18,8 +18,30 @@ This skill ensures all code development follows TDD principles with comprehensiv
 
 ## Core Principles
 
-### 1. Tests BEFORE Code
+### 1. Tests BEFORE Code — Vertical Slices Only
 ALWAYS write tests first, then implement code to make tests pass.
+
+**Critical anti-pattern: Horizontal Slicing**
+
+DO NOT write all tests first, then all implementation. This is "horizontal slicing" — it produces low-quality tests because they test *imagined* behavior, not actual behavior.
+
+```
+WRONG (horizontal):
+  RED:   test1, test2, test3, test4, test5   ← all tests up front
+  GREEN: impl1, impl2, impl3, impl4, impl5   ← all code after
+
+RIGHT (vertical tracer bullets):
+  RED→GREEN: test1→impl1   ← one test, one impl, repeat
+  RED→GREEN: test2→impl2
+  RED→GREEN: test3→impl3
+```
+
+Each test responds to what you learned from the previous cycle. Because you just wrote the code, you know exactly what behavior matters and how to verify it.
+
+**For data engineering specifically:**
+- Write one dbt test → implement the model → verify → next test
+- Write one pytest for a transform function → implement → verify → next transform
+- Write one DAG task assertion → implement the callable → verify → next task
 
 ### 2. Coverage Requirements
 - Minimum 80% coverage (unit + integration + E2E)
@@ -382,6 +404,31 @@ npm test && npm run lint
 - name: Upload Coverage
   uses: codecov/codecov-action@v3
 ```
+
+## Test Philosophy (Good vs Bad Tests)
+
+**Good tests** verify behavior through public interfaces. They describe *what* the system does, not *how*.
+
+```python
+# GOOD: Tests observable pipeline behavior
+def test_daily_revenue_aggregation():
+    df = load_fixture("transactions_2024_01_01.parquet")
+    result = aggregate_daily_revenue(df, date="2024-01-01")
+    assert result["total_revenue"].iloc[0] == Decimal("12345.67")
+    assert len(result) == 1  # one row per day
+
+# BAD: Tests implementation detail
+def test_daily_revenue_calls_groupby():
+    with patch("pandas.DataFrame.groupby") as mock_groupby:
+        aggregate_daily_revenue(df, date="2024-01-01")
+        mock_groupby.assert_called_once_with("date")
+```
+
+**Bad tests** are coupled to implementation — they break when you refactor, even when behavior is unchanged.
+
+**Mock at system boundaries only.** Don't mock your own transform functions, dbt models, or internal Python modules. Mock: external APIs, warehouse connections in unit tests, file systems (sometimes), time/randomness.
+
+**Prefer test databases over heavy mocks.** DuckDB running in-process is a better test double for warehouse SQL than a mocked connection — it actually executes the SQL.
 
 ## Best Practices
 

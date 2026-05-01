@@ -37,7 +37,7 @@ gstack proactively routes to the right skill based on intent. Key triggers:
 
 ```
 ai-config/
-  skills/           # 23 skill directories (SKILL.md each)
+  skills/           # 27 skill directories (SKILL.md each)
   rules/            # 15 rule files
     common/         #  10 general rules (workflow, security, git, etc.)
     python/         #   5 Python-specific rules
@@ -91,7 +91,7 @@ invoked skill.
 
 | Category | Count | Details |
 |----------|-------|---------|
-| Skills   | 23    | 6 custom + 17 ECC (supporting) |
+| Skills   | 27    | 10 custom + 17 ECC (supporting) |
 | Rules    | 15    | 10 common + 5 Python |
 
 See [docs/SKILLS.md](docs/SKILLS.md) for the full catalog with descriptions and triggers.

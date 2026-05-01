@@ -1,6 +1,6 @@
 # Skill Catalog
 
-23 skills organized by category. ECC skills are supporting reference material for
+27 skills organized by category. ECC skills are supporting reference material for
 coding standards, testing patterns, security checklists, and infrastructure guidance.
 
 ---
@@ -18,7 +18,7 @@ coding standards, testing patterns, security checklists, and infrastructure guid
 
 | Skill | Description |
 |-------|-------------|
-| `tdd-workflow` | Test-driven development with 80%+ coverage enforcement |
+| `tdd-workflow` | Test-driven development with 80%+ coverage, vertical-slice red-green-refactor cycles |
 | `python-testing` | pytest, TDD, fixtures, mocking, parametrization, coverage |
 | `golang-testing` | Table-driven tests, subtests, benchmarks, fuzzing, TDD |
 | `verification-loop` | Comprehensive verification system for code sessions |
@@ -69,6 +69,15 @@ coding standards, testing patterns, security checklists, and infrastructure guid
 | `lineage-ops` | Unified lineage workflow: upstream/downstream impact analysis, task lineage annotations, and OpenLineage extractor guidance |
 | `airflow-data-engineering` | Unified Airflow workflow: DAG authoring, testing, debugging, plugins, HITL, and migration guidance |
 | `dbt-analytics-engineering` | Unified dbt workflow: modeling, command execution, docs retrieval, semantic layer, unit tests, troubleshooting, and migrations |
+
+## Custom Skills from mattpocock/skills (4, DE-adapted)
+
+| Skill | Description | Trigger |
+|-------|-------------|---------|
+| `diagnose` | Structured debugging workflow using fast feedback loops before touching code -- 15 DE-specific strategies including partition replay, schema diff, upstream audit, idempotency check | When hitting a bug, silent failure, or unexpected pipeline output |
+| `improve-pipeline-architecture` | Deepen shallow pipeline modules: fat DAG → thin DAG + callable, implicit schema → contract, monolithic Spark → seamed stages. Includes LANGUAGE.md, DEEPENING.md, INTERFACE-DESIGN.md | When designing or refactoring pipeline architecture |
+| `caveman` | Ultra-compressed communication mode (~75% fewer tokens). Drop articles, filler, pleasantries -- keep full technical accuracy | User says "caveman mode", "less tokens", or `/caveman` |
+| `grill-me` | Interrogates the user with targeted questions before they commit to a data model or pipeline design -- surfaces hidden assumptions, missing constraints, cardinality errors, idempotency gaps | User says "grill me", "poke holes in this", or `/grill-me` |
 
 ## Consolidation Map (Astronomer Import)
 
